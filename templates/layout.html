@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<title>Elizabwth</title>
+
+		{% assets "scss_all" %}
+			<link rel='stylesheet' type='text/css' href='{{ ASSET_URL }}'>
+		{% endassets %}
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+		<script src="/static/js/main.js"></script>
+	</head>
+	<body>
+		<div id="background"></div>
+		<div id="background_gradient"></div>
+
+		<div id="container">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

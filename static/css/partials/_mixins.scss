@@ -1,0 +1,28 @@
+@mixin translate($x: 0, $y: 0) {
+	-webkit-transform: translate($x, $y);
+	   -moz-transform: translate($x, $y);
+	    -ms-transform: translate($x, $y);
+	     -o-transform: translate($x, $y);
+			transform: translate($x, $y);
+}
+
+@mixin centerer($horizontal: true, $vertical: true) {
+	position: absolute;
+	@if ($horizontal and $vertical) {
+		top: 50%;
+		left: 50%;
+		@include translate(-50%, -50%);
+	} @else if ($horizontal) {
+		left: 50%;
+		@include translate(-50%, 0);
+	} @else if ($vertical) {
+		top: 50%;
+		@include translate(0, -50%);
+	}
+}
+
+@mixin box-sizing {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+    		box-sizing: border-box;
+}
