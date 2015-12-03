@@ -1,9 +1,9 @@
-# elizabwth-web
-elizabwth.com
+www.elizabwth.com
 
 https://developers.openshift.com/en/python-flask.html
 
-# Requires
-Flask
-Flask-Assets
-pyScss
+Requires
+--------
+* Flask
+* Flask-Assets
+* pyScss
