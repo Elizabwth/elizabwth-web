@@ -1,5 +1,6 @@
 @import "partials/mixins";
 @import "partials/fonts";
+@import "partials/colors";
 
 body {
 	padding: 0;
@@ -40,52 +41,4 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-}
-
-#container {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 100%;
-
-	#content {
-		@include centerer(true, true);
-		opacity: 0;
-
-		#logo {
-			display: block;
-			width: 211px;
-			height: 112px;
-			margin: auto;
-		}
-
-		#nav {
-			width: 270px;
-			height: 23px;
-			margin-top: 9px;
-			margin-left: auto;
-			margin-right: auto;
-			background-color: rgba(0,0,0,0.3);
-			text-align: center;
-			cursor: default;
-
-			.nav_links {
-				display: inline-block;
-				font-family: 'walkway_oblique_semiboldRg';
-				font-size: 14px;
-				line-height: 23px;
-				padding: 0px 8px;
-
-				&:link, &:visited, &:active {
-					color: white;
-					text-decoration: none;
-				}
-				&:hover {
-					color: white;
-					text-decoration: none;
-					background-color: rgba(0,0,0,0.5);
-				}
-			}
-		}
-	}
 }

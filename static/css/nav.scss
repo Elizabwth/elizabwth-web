@@ -1,0 +1,43 @@
+@import "partials/mixins";
+@import "partials/fonts";
+@import "partials/colors";
+
+$nav_height: 6.4rem;
+
+.nav {
+	height: $nav_height;
+	background-color: white;
+	text-align: center;
+
+	box-shadow: inset 0 -0.2rem 0 0 $shade2;
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+
+		li {
+			display: inline-block;
+			margin: 0;
+			
+			line-height: $nav_height;
+			font-size: 1rem;
+
+			a {
+				display:block;
+				height: $nav_height;
+				padding: 0 1.6rem;
+
+				text-decoration: none;
+				font-family: 'Lato', sans-serif;
+				text-transform: uppercase;
+				color: black;
+
+				&:hover,
+				&:active {
+					color: $darkp;
+					box-shadow: inset 0 -0.2rem 0 0 $shade4;
+				}
+			}
+		}
+	}
+}

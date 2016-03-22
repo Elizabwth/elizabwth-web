@@ -4,7 +4,7 @@ from src import utils
 
 app = Flask(__name__)
 app.secret_key = 'KPwdT3zJ2QUge3Xc'
-#app.debug = True
+app.debug = True
 
 utils.bundle_assets(app)
 
