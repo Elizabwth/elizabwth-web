@@ -8,10 +8,10 @@ body {
 	background-color: black;
 }
 ::selection {
-  background: #d4074a;
+  background: $tertiary1;
 }
 ::-moz-selection {
-  background: #d4074a;
+  background: $tertiary1;
 }
 
 #background {

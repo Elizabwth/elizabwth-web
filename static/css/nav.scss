@@ -7,35 +7,36 @@ $nav_height: 6.4rem;
 .nav {
 	height: $nav_height;
 	background-color: white;
-	text-align: center;
+	letter-spacing: 0.25rem;
 
-	box-shadow: inset 0 -0.2rem 0 0 $shade2;
+	font-family: 'Montserrat', sans-serif;
 
 	ul {
+		text-align: center;
 		list-style-type: none;
 		margin: 0;
 
 		li {
 			display: inline-block;
 			margin: 0;
+			margin-left: 3.2rem;
 			
 			line-height: $nav_height;
 			font-size: 1rem;
 
 			a {
-				display:block;
+				display: block;
 				height: $nav_height;
-				padding: 0 1.6rem;
 
 				text-decoration: none;
-				font-family: 'Lato', sans-serif;
 				text-transform: uppercase;
 				color: black;
 
+				@include transition(all 0.25s ease);
+
 				&:hover,
 				&:active {
-					color: $darkp;
-					box-shadow: inset 0 -0.2rem 0 0 $shade4;
+					color: $primary1;
 				}
 			}
 		}
