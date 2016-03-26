@@ -42,3 +42,66 @@ body {
 	background-position: center;
 	background-size: cover;
 }
+
+$nav_height: 6.4rem;
+$nav_btn_width: 10rem;
+
+$footer_height: 2.4rem;
+
+.nav {
+	height: $nav_height;
+	background-color: white;
+	letter-spacing: 0.25rem;
+
+	font-family: 'Montserrat', sans-serif;
+
+	ul {
+		white-space: nowrap;
+		text-align: center;
+		list-style-type: none;
+		margin: 0;
+
+		li {
+			display: inline-block;
+			margin: 0;
+			
+			line-height: $nav_height;
+			font-size: 1rem;
+
+			a {
+				display: block;
+				height: $nav_height;
+				min-width: $nav_btn_width;
+
+				text-decoration: none;
+				text-transform: uppercase;
+				text-align: center;
+				color: black;
+
+				@include transition(all 0.25s ease);
+
+				&:hover,
+				&:active {
+					color: $primary1;
+				}
+			}
+		}
+	}
+}
+
+.content {
+	display: block;
+	min-height: calc(100% - #{$nav_height} - #{$footer_height});
+	background-color: rgba(0, 0, 0, 0.25);
+}
+
+.footer {
+	display: block;
+
+	height: $footer_height;
+	line-height: $footer_height;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.1rem;
+	background-color: rgba(255, 255, 255, 0.85);
+	color: black;
+}
