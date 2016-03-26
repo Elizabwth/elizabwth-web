@@ -3,6 +3,7 @@
 @import "partials/colors";
 
 $nav_height: 6.4rem;
+$nav_btn_width: 6.6rem;
 
 .nav {
 	height: $nav_height;
@@ -19,7 +20,6 @@ $nav_height: 6.4rem;
 		li {
 			display: inline-block;
 			margin: 0;
-			margin-left: 3.2rem;
 			
 			line-height: $nav_height;
 			font-size: 1rem;
@@ -27,9 +27,12 @@ $nav_height: 6.4rem;
 			a {
 				display: block;
 				height: $nav_height;
+				min-width: $nav_btn_width;
+				padding: 0 1.6rem;
 
 				text-decoration: none;
 				text-transform: uppercase;
+				text-align: center;
 				color: black;
 
 				@include transition(all 0.25s ease);

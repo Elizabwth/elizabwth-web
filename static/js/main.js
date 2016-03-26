@@ -12,10 +12,21 @@ var load_background = function() {
 	});
 }
 
+var set_content_height = function() {
+	var window_height = $('body').height();
+	var content = $('.content');
+
+	var nav_height = $('.nav').height();
+	var footer_height = $('.footer').height();
+	var min_height = window_height - nav_height - footer_height;
+	content.css({'min-height': min_height});
+}
+
 $(window).load(function() {
 	load_background();
+	set_content_height();
 });
 
 $(document).ready(function() {
-	$('#content').fadeTo(500, 1);
+	//$('.content').fadeTo(500, 1);
 });
