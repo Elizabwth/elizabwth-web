@@ -50,7 +50,7 @@ $footer_height: 2.4rem;
 
 .nav {
 	height: $nav_height;
-	background-color: white;
+	background-color: $frost;
 	letter-spacing: 0.25rem;
 
 	font-family: 'Montserrat', sans-serif;
@@ -92,7 +92,7 @@ $footer_height: 2.4rem;
 .content {
 	display: block;
 	min-height: calc(100% - #{$nav_height} - #{$footer_height});
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0.75);
 }
 
 .footer {
@@ -102,6 +102,6 @@ $footer_height: 2.4rem;
 	line-height: $footer_height;
 	font-family: 'Lato', sans-serif;
 	font-size: 1.1rem;
-	background-color: rgba(255, 255, 255, 0.85);
+	background-color: $frost;
 	color: black;
 }
