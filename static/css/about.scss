@@ -2,45 +2,59 @@
 @import "partials/colors";
 
 $logo_width: 25.6rem;
+$logo_height: 14.7875rem;
 $logo_padding: 35rem;
 
 .container.about {
-	@include centerer(true, true);
-	@media (min-width: 550px) {
-		width: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	
+	@include transition(all 1000ms ease);
+	@include transform(translate(-50%, -60%)); // slightly off-center
+	opacity: 0;
+
+	&.finish_animation {
+		opacity: 1;
+		@include transform(translate(-50%, -50%));
 	}
 
 	.logo {
 		text-align: center;
-		margin-right: -4.2rem;
-
+		//margin-right: -4.2rem; // weighted center
 
 		img.logo {
-			max-width: $logo_width;
+			width: $logo_width;
+			height: $logo_height;
 			padding-bottom: 1.2rem;
 		}
 	}
 
 	.text {
-		padding: 1.2rem;
+		overflow: hidden;
+		padding: 1.8rem;
 		font-family: 'Lato', sans-serif;
-		font-size: 1rem;
+		font-size: 1.2rem;
 		text-transform: uppercase;
 		color: black;
 		background-color: $frost;
 
 		.info {
-			height: 100%;
-			padding: .6rem;
-			ul {
-				margin-bottom: 0.2rem;
-				list-style-type: square;
-				li {
-					color: $primary2;
-					margin-left: 1.6rem;
-					margin-bottom: 0.2rem;
-				}
+			position: relative;
+			
+			.bg {
+
+				top: -2.4rem;
+				left: -2.4rem;
+				position: absolute;
+				font-size: 12.8rem;
+				text-align: center;
+				color: rgba($tertiary0, 0.25);
 			}
 		}
+	}
+
+	@media (min-width: 550px) {
+		width: 50%;
 	}
 }

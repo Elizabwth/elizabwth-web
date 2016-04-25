@@ -13,6 +13,10 @@ body {
 ::-moz-selection {
   background: $tertiary1;
 }
+span {
+	color: $primary1;
+	font-style: italic;
+}
 
 #background {
 	z-index: -2;
@@ -92,7 +96,7 @@ $footer_height: 2.4rem;
 .content {
 	display: block;
 	min-height: calc(100% - #{$nav_height} - #{$footer_height});
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .footer {

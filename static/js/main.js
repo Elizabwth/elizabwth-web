@@ -7,8 +7,8 @@ var load_background = function() {
 	}).always(function() {
 		$('#background')
 			.css('background-image', "url("+bg_picture+")")
-			.fadeTo(1500, 1);
-		$('#background_gradient').fadeTo(2500, 0);
+			.fadeTo(1000, 1);
+		$('#background_gradient').fadeTo(1500, 0);
 	});
 }
 
@@ -17,5 +17,5 @@ $(window).load(function() {
 });
 
 $(document).ready(function() {
-	//$('.content').fadeTo(500, 1);
+	$('.container.about').addClass('finish_animation');
 });

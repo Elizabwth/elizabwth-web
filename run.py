@@ -11,6 +11,7 @@ utils.bundle_assets(app)
 # Root (Home)
 @app.route('/')
 def index():
+	print utils.get_event_list()
 	return render_template('pages/index.html')
 
 if __name__ == '__main__':
