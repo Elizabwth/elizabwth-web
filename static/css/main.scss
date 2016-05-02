@@ -5,17 +5,17 @@
 body {
 	padding: 0;
 	margin: 0;
-	background-color: black;
+	background-color: $shade4;
 }
 ::selection {
-  background: $tertiary1;
+  background: rgba($primary0, 0.5);
 }
 ::-moz-selection {
-  background: $tertiary1;
+  background: rgba($primary0, 0.5);
 }
 span {
-	color: $primary1;
-	font-style: italic;
+	//margin: 0 0.6rem;
+	color: $primary0;
 }
 
 #background {
@@ -50,14 +50,26 @@ span {
 $nav_height: 6.4rem;
 $nav_btn_width: 10rem;
 
+$logo_height: 12.8rem;
+$logo_padding: 1.2rem;
+
 $footer_height: 2.4rem;
 
 .nav {
 	height: $nav_height;
-	background-color: $frost;
+	background-color: $shade4;
 	letter-spacing: 0.25rem;
 
 	font-family: 'Montserrat', sans-serif;
+	overflow: hidden;
+
+
+	img.logo {
+		position: absolute;
+		top: -($logo_height - $nav_height);
+		left: $logo_padding;
+		height: $logo_height;
+	}
 
 	ul {
 		white-space: nowrap;
@@ -80,13 +92,14 @@ $footer_height: 2.4rem;
 				text-decoration: none;
 				text-transform: uppercase;
 				text-align: center;
-				color: black;
+				color: $shade1;
 
 				@include transition(all 0.25s ease);
 
 				&:hover,
-				&:active {
-					color: $primary1;
+				&:active,
+				&.active {
+					color: $primary0;
 				}
 			}
 		}
@@ -96,7 +109,7 @@ $footer_height: 2.4rem;
 .content {
 	display: block;
 	min-height: calc(100% - #{$nav_height} - #{$footer_height});
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.25);
 }
 
 .footer {
@@ -106,6 +119,7 @@ $footer_height: 2.4rem;
 	line-height: $footer_height;
 	font-family: 'Lato', sans-serif;
 	font-size: 1.1rem;
-	background-color: $frost;
-	color: black;
+	letter-spacing: 0.1rem;
+	background-color: $shade4;
+	color: $shade1;
 }

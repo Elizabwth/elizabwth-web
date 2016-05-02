@@ -10,9 +10,17 @@ utils.bundle_assets(app)
 
 # Root (Home)
 @app.route('/')
-def index():
-	print utils.get_event_list()
-	return render_template('pages/index.html')
+@app.route('/about')
+def about():
+	return render_template('pages/about.html')
+
+@app.route('/work')
+def work():
+	return render_template('pages/work.html')
+
+@app.route('/contact')
+def contact():
+	return render_template('pages/contact.html')
 
 if __name__ == '__main__':
 	app.run()

@@ -1,20 +1,60 @@
 <html>
 	<head>
 		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-		<title>Elizabwth</title>
+		<title>
+	    	{{ page }}{% if page %} | {% endif %}veravere
+	    </title>
 
 		{% assets "scss_all" %}
 			<link rel='stylesheet' type='text/css' href='{{ ASSET_URL }}'>
 		{% endassets %}
 
 		<script src="/static/js/jquery-1.12.2.min.js"></script>
-		<!--<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>-->
 		<script src="/static/js/main.js"></script>
 	</head>
 	<body>
 		<div id="background"></div>
 		<div id="background_gradient"></div>
 
+		<div class="section nav">
+			<div class="container">
+				<div class="row">
+					<ul>
+						<li id="nav_about">
+							<a href="{{ url_for('about') }}">about</a>
+						</li><li id="nav_work"> <!-- avoiding whitespace between -->
+							<a href="{{ url_for('work') }}">work</a>
+						</li><li id="nav_contact">
+							<a href="{{ url_for('contact') }}">contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				var active_page = '{{ page }}';
+				if (active_page == 'about') {
+					$('#nav_about').find('a').addClass('active');
+				} else if (active_page == 'work') {
+					$('#nav_work').find('a').addClass('active');
+				} else if (active_page == 'contact') {
+					$('#nav_contact').find('a').addClass('active');
+				}
+			});
+		</script>
+
 		{% block content %}{% endblock %}
+
+		<div class="section footer">
+			<div class="container">
+				<div class="row">
+					<div class="four columns">
+						VERAVERE &copy; 2016
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

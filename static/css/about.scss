@@ -1,60 +1,47 @@
 @import "partials/mixins";
 @import "partials/colors";
 
-$logo_width: 25.6rem;
-$logo_height: 14.7875rem;
-$logo_padding: 35rem;
+$logo_width: 12.8rem;
+
+.content.about {
+	background-color: rgba($shade4, 0.75);
+}
 
 .container.about {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	
-	@include transition(all 1000ms ease);
-	@include transform(translate(-50%, -60%)); // slightly off-center
+	padding: 6.4rem 0;
 	opacity: 0;
 
 	&.finish_animation {
 		opacity: 1;
-		@include transform(translate(-50%, -50%));
 	}
 
-	.logo {
-		text-align: center;
-		//margin-right: -4.2rem; // weighted center
-
-		img.logo {
-			width: $logo_width;
-			height: $logo_height;
-			padding-bottom: 1.2rem;
-		}
-	}
-
-	.text {
+	.flavour {
 		overflow: hidden;
-		padding: 1.8rem;
-		font-family: 'Lato', sans-serif;
-		font-size: 1.2rem;
+		//padding: 1.8rem;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1rem;
+		letter-spacing: 0.2rem;
 		text-transform: uppercase;
-		color: black;
-		background-color: $frost;
+		color: white;
+		margin-bottom: 2.4rem;
+
+		.catch {
+			list-style-type: none;
+			margin: 0;
+			color: white;
+
+			li {
+				margin: 0;
+			}
+		}
 
 		.info {
 			position: relative;
-			
-			.bg {
-
-				top: -2.4rem;
-				left: -2.4rem;
-				position: absolute;
-				font-size: 12.8rem;
-				text-align: center;
-				color: rgba($tertiary0, 0.25);
-			}
+			text-align: center;
 		}
-	}
 
-	@media (min-width: 550px) {
-		width: 50%;
+		.logo {
+			width: $logo_width;
+		}
 	}
 }
