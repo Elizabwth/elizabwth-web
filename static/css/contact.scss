@@ -1,0 +1,14 @@
+@import "partials/mixins";
+@import "partials/colors";
+
+.content.contact {
+	background-color: rgba($shade4, 0.75);
+}
+
+.container.contact {
+	padding: 6.4rem 0;
+
+	&.finish_animation {
+		opacity: 1;
+	}
+}

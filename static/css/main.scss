@@ -123,3 +123,35 @@ $footer_height: 2.4rem;
 	background-color: $shade4;
 	color: $shade1;
 }
+
+form {
+	margin: 0;
+	padding: 0;
+
+	label {
+		color: white;
+		font-family: 'Lato', sans-serif;
+		font-size: 1.2rem;
+		font-weight: normal;
+		letter-spacing: 0.2rem;
+	}
+
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="text"],
+	input[type="tel"],
+	input[type="url"],
+	input[type="password"],
+	textarea,
+	select {
+		color: white;
+		background-color: $shade4;
+		border-radius: 0;
+		border-color: $shade2;
+
+		&:focus {
+			border-color: $shade1;
+		}
+	}
+}
