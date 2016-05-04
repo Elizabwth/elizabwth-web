@@ -221,3 +221,6 @@ venv/
 #Flask-Assets
 .webassets-cache
 static/all.css
+
+# settings
+settings.py
