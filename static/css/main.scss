@@ -110,6 +110,10 @@ $footer_height: 2.4rem;
 	display: block;
 	min-height: calc(100% - #{$nav_height} - #{$footer_height});
 	background-color: rgba(0, 0, 0, 0.25);
+
+	.container {
+		padding: 6.4rem 1.2rem;
+	}
 }
 
 .footer {
@@ -133,6 +137,7 @@ form {
 		font-family: 'Lato', sans-serif;
 		font-size: 1.2rem;
 		font-weight: normal;
+		text-transform: uppercase;
 		letter-spacing: 0.2rem;
 	}
 

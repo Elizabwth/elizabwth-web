@@ -4,16 +4,36 @@
 {% block content %}
 	<div class="section content contact">
 		<div class="container contact">
-			<form class="row">
-				<div class="email_form">
+			<form>
+				{{ contact_form.csrf_token }}
+				<div class="row">
 					<div class="columns six">
-						<label>NAME</label>
-						<input class="u-full-width" type="text">
+						{{ contact_form.name.label }}
+						{{ contact_form.name(class_='u-full-width') }}
 					</div>
 
 					<div class="columns six">
-						<label>EMAIL</label>
-						<input class="u-full-width" type="email">
+						{{ contact_form.email.label }}
+						{{ contact_form.email(class_='u-full-width') }}
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="columns six">
+						{{ contact_form.subject.label }}
+						{{ contact_form.subject(class_='u-full-width') }}
+					</div>
+
+					<div class="columns six">
+						{{ contact_form.reason.label }}
+						{{ contact_form.reason(class_='u-full-width') }}
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="columns twelve">
+						{{ contact_form.message.label }}
+						{{ contact_form.message(class_='contact_message_body u-full-width', rows='5') }}
 					</div>
 				</div>
 			</form>

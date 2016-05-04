@@ -6,9 +6,13 @@
 }
 
 .container.contact {
-	padding: 6.4rem 0;
 
 	&.finish_animation {
 		opacity: 1;
+	}
+
+	.contact_message_body {
+		height: 256px;
+		min-height: 256px;
 	}
 }

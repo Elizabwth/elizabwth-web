@@ -1,12 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask.ext.wtf.csrf import CsrfProtect
 import src
-from src import utils
+from src import utils, forms
 
 app = Flask(__name__)
 app.secret_key = 'KPwdT3zJ2QUge3Xc'
 app.debug = True
 
 utils.bundle_assets(app)
+
+CsrfProtect(app)
 
 # Root (Home)
 @app.route('/')
@@ -20,7 +23,9 @@ def work():
 
 @app.route('/contact')
 def contact():
-	return render_template('pages/contact.html')
+	contact_form = forms.ContactForm()
+	return render_template('pages/contact.html',
+						   contact_form = contact_form)
 
 if __name__ == '__main__':
 	app.run()
