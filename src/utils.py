@@ -14,6 +14,7 @@ def bundle_assets(app):
 				  'css/main.scss',
 				  'css/about.scss',
 				  'css/contact.scss',
+				  'css/partials/modal.scss',
 				  filters = 'pyscss', output = 'all.css')
 	assets.register('scss_all', scss)
 

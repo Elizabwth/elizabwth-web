@@ -1,0 +1,39 @@
+{% block modal %}
+<div class="section" id="modal">
+	<div class="container modal">
+		<div class="row">
+			<div class="columns twelve header">
+				<div id="modal_title">LOADING</div>
+				<div id="modal_close">&#10060;</div>
+			</div>
+			<div class="columns twelve body">
+				<div id="modal_body">
+					test
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		var modal = $('#modal');
+		var hide_modal = function() {
+			modal.fadeOut(500, function() {
+				modal.hide();
+			});
+		}
+		var show_modal = function() {
+			modal.fadeIn(500, function() {
+				modal.show();
+			});
+		}
+
+		var modal_close_button = $('#modal_close');
+		modal_close_button.click(function() {
+			hide_modal();
+		});
+	});
+</script>
+
+{% endblock %}

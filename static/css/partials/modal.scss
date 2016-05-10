@@ -1,0 +1,64 @@
+@import "../partials/mixins";
+@import "../partials/colors";
+
+$header_height: 3.2rem;
+
+#modal {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(black, 0.5);
+
+	.modal {
+		@include centerer(true, true);
+		border: 1px solid black;
+
+		.header {
+			background-color: $shade3;
+
+			#modal_title {
+				color: white;
+				font-family: 'Lato', sans-serif;
+				font-size: 1.6rem;
+				font-weight: normal;
+				letter-spacing: 0.1rem;
+
+				width: 100%;
+				height: $header_height;
+				line-height: $header_height;
+				text-align: center;
+			}
+
+			#modal_close {
+				position: absolute;
+				display: inline-block;
+				top: 0;
+				right: 0;
+				height: $header_height;
+				line-height: $header_height;
+				font-size: 1.8rem;
+				padding: 0 0.6rem;
+
+				color: $primary0;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+
+		.body {
+			padding: 1.2rem;
+			background-color: $shade4;
+
+			#modal_body {
+				display: block;
+				color: white;
+			}
+		}
+	}
+}
