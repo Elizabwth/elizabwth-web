@@ -47,11 +47,36 @@
 		self.status_check = $('#check');
 		self.status_cross = $('#cross');
 
+		self.circle_anim = new Vivus('circle', {animTimingFunction: Vivus.EASE_OUT});
+		self.check_anim = new Vivus('check', {animTimingFunction: Vivus.EASE_OUT});
+		self.cross_anim = new Vivus('cross', {animTimingFunction: Vivus.EASE_OUT});
+
+		self.circle_anim.stop().reset();
+		self.check_anim.stop().reset();
+		self.cross_anim.stop().reset();
+
+		self.animate_circle = function() {
+			var direction = 1;
+			function reverse() {
+				if (direction == 1) {
+					direction = -1;
+				} else {
+					direction = 1;
+				}
+				console.log(direction);
+				self.circle_anim.play(direction);
+			}
+			self.circle_anim.setCallback(reverse);
+			self.circle_anim.play(direction);
+		}
+
 		self.animate_cross = function() {
-			
+			self.circle_anim.play(1);
+			self.cross_anim.play(1);
 		}
 		self.animate_check = function() {
-			
+			self.circle_anim.play(1);
+			self.check_anim.play(1);
 		}
 
 		self.hide_modal = function() {
@@ -90,8 +115,7 @@
 	var modal = new Modal();
 	modal.modal_head.hide();
 	modal.modal_status.show();
-	modal.animate_check();
-	modal.animate_cross();
+	modal.animate_circle();
 </script>
 
 {% endblock %}
