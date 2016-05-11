@@ -1,0 +1,29 @@
+
+{% block status %}
+	<?xml version="1.0" encoding="utf-8"?>
+	<!-- Generator: Adobe Illustrator 19.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="0 0 540 540" style="enable-background:new 0 0 540 540;" xml:space="preserve">
+		<style type="text/css">
+			.st0{fill:#FFFFFF;}
+			.st1{fill:none;stroke:#FFFFFF;stroke-width:12;stroke-miterlimit:10;}
+		</style>
+		<g id="circle">
+			<g>
+				<path class="st0" d="M270,12c34.8,0,68.6,6.8,100.4,20.3c30.7,13,58.3,31.6,82,55.3c23.7,23.7,42.3,51.3,55.3,82
+					C521.2,201.4,528,235.2,528,270s-6.8,68.6-20.3,100.4c-13,30.7-31.6,58.3-55.3,82c-23.7,23.7-51.3,42.3-82,55.3
+					C338.6,521.2,304.8,528,270,528s-68.6-6.8-100.4-20.3c-30.7-13-58.3-31.6-82-55.3c-23.7-23.7-42.3-51.3-55.3-82
+					C18.8,338.6,12,304.8,12,270s6.8-68.6,20.3-100.4c13-30.7,31.6-58.3,55.3-82c23.7-23.7,51.3-42.3,82-55.3
+					C201.4,18.8,235.2,12,270,12 M270,0C120.9,0,0,120.9,0,270s120.9,270,270,270s270-120.9,270-270S419.1,0,270,0L270,0z"/>
+			</g>
+		</g>
+		<g id="check">
+			<polyline class="st1" points="119.7,305.7 203.3,391.3 408.3,191 	"/>
+		</g>
+		<g id="cross">
+			<line class="st1" x1="163.9" y1="378.3" x2="380.6" y2="161.7"/>
+			<line class="st1" x1="380.6" y1="378.3" x2="163.9" y2="161.7"/>
+		</g>
+	</svg>
+
+{% endblock %}

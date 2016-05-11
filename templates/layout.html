@@ -10,11 +10,13 @@
 		{% endassets %}
 
 		<script src="/static/js/jquery-1.12.2.min.js"></script>
+		<script src="//cdn.jsdelivr.net/vivus/0.3.0/vivus.min.js"></script>
 		<script src="/static/js/main.js"></script>
 	</head>
 	<body>
 		<div id="background"></div>
 		<div id="background_gradient"></div>
+		<div id="particle"></div>
 
 		<div class="section nav">
 			<div class="container">
@@ -45,6 +47,7 @@
 			});
 		</script>
 
+		{% include 'partials/_modal.html' %}
 		{% block content %}{% endblock %}
 
 		<div class="section footer">
@@ -56,7 +59,5 @@
 				</div>
 			</div>
 		</div>
-
-		{% include 'partials/_modal.html' %}
 	</body>
 </html>

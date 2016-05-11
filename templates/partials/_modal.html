@@ -1,39 +1,97 @@
 {% block modal %}
 <div class="section" id="modal">
 	<div class="container modal">
-		<div class="row">
-			<div class="columns twelve header">
-				<div id="modal_title">LOADING</div>
-				<div id="modal_close">&#10060;</div>
+		<div id="modal_head" class="row">
+			<div class="columns twelve">
+				<div id="modal_title"></div>
+				<div id="modal_close">&#10005;</div>
 			</div>
-			<div class="columns twelve body">
-				<div id="modal_body">
-					test
+		</div>
+		<div id="modal_content" class="row">
+			<div class="columns twelve">
+				<div id="modal_status">
+					<svg id="circle" viewBox="0 0 540 540">
+						<g stroke="#FFF" stroke-width="12" fill="none">
+							<path class="st0" d="M270,12c34.8,0,68.6,6.8,100.4,20.3c30.7,13,58.3,31.6,82,55.3c23.7,23.7,42.3,51.3,55.3,82 C521.2,201.4,528,235.2,528,270s-6.8,68.6-20.3,100.4c-13,30.7-31.6,58.3-55.3,82c-23.7,23.7-51.3,42.3-82,55.3 C338.6,521.2,304.8,528,270,528s-68.6-6.8-100.4-20.3c-30.7-13-58.3-31.6-82-55.3c-23.7-23.7-42.3-51.3-55.3-82 C18.8,338.6,12,304.8,12,270s6.8-68.6,20.3-100.4c13-30.7,31.6-58.3,55.3-82c23.7-23.7,51.3-42.3,82-55.3 C201.4,18.8,235.2,12,270,12"/>
+						</g>
+					</svg>
+					<svg id="check" x="0px" y="0px" viewBox="0 0 540 540">
+						<g stroke="#FFF" stroke-width="12" fill="none">
+							<path class="st1" d="M408.3,191l-205,200.3l-83.7-85.7"/>
+						</g>
+					</svg>
+					<svg id="cross" x="0px" y="0px" viewBox="0 0 540 540">
+						<g stroke="#FFF" stroke-width="12" fill="none">
+							<path class="st1" d="M380.6,161.7L163.9,378.3 M163.9,161.7l216.7,216.7"/>
+						</g>
+					</svg>
 				</div>
+				<div id="modal_content"></div>
 			</div>
 		</div>
 	</div>
 </div>
 
 <script>
-	$(document).ready(function() {
-		var modal = $('#modal');
-		var hide_modal = function() {
-			modal.fadeOut(500, function() {
-				modal.hide();
-			});
+
+	function Modal() {
+		self = this;
+		self.modal = $('#modal');
+		self.modal_head = $('#modal_head');
+		self.modal_title = $('#modal_title');
+		self.modal_close = $('#modal_close');
+		self.modal_body = $('#modal_body');
+
+		self.modal_status = $('#modal_status');
+		self.status_circle = $('#circle');
+		self.status_check = $('#check');
+		self.status_cross = $('#cross');
+
+		self.animate_cross = function() {
+			
 		}
-		var show_modal = function() {
-			modal.fadeIn(500, function() {
-				modal.show();
-			});
+		self.animate_check = function() {
+			
 		}
 
-		var modal_close_button = $('#modal_close');
-		modal_close_button.click(function() {
-			hide_modal();
+		self.hide_modal = function() {
+			self.modal.fadeOut(500, function() {
+				self.modal.hide();
+			});
+		}
+		self.show_modal = function() {
+			self.modal.fadeIn(500, function() {
+				self.modal.show();
+			});
+		}
+		self.set_title = function(title) {
+			self.modal_title.text(title);
+		}
+
+		self.load_content = function(url) {
+			self.modal_status.fadeIn(500);
+			$.ajax(url)
+				.done(function(response) {
+					self.modal_body.fadeIn(500);
+					self.modal_body.html(response);
+				})
+				.fail(function() {
+					self.modal_body.hide();
+				});
+		}
+		
+		self.modal_close.click(function() {
+			self.hide_modal();
 		});
-	});
+
+		return(self);
+	}
+
+	var modal = new Modal();
+	modal.modal_head.hide();
+	modal.modal_status.show();
+	modal.animate_check();
+	modal.animate_cross();
 </script>
 
 {% endblock %}
