@@ -7,27 +7,24 @@
 				<div id="modal_close">&#10005;</div>
 			</div>
 		</div>
-		<div id="modal_content" class="row">
-			<div class="columns twelve">
-				<div id="modal_status">
-					<svg id="circle" viewBox="0 0 540 540">
-						<g stroke="#FFF" stroke-width="12" fill="none">
-							<path class="st0" d="M270,12c34.8,0,68.6,6.8,100.4,20.3c30.7,13,58.3,31.6,82,55.3c23.7,23.7,42.3,51.3,55.3,82 C521.2,201.4,528,235.2,528,270s-6.8,68.6-20.3,100.4c-13,30.7-31.6,58.3-55.3,82c-23.7,23.7-51.3,42.3-82,55.3 C338.6,521.2,304.8,528,270,528s-68.6-6.8-100.4-20.3c-30.7-13-58.3-31.6-82-55.3c-23.7-23.7-42.3-51.3-55.3-82 C18.8,338.6,12,304.8,12,270s6.8-68.6,20.3-100.4c13-30.7,31.6-58.3,55.3-82c23.7-23.7,51.3-42.3,82-55.3 C201.4,18.8,235.2,12,270,12"/>
-						</g>
-					</svg>
-					<svg id="check" x="0px" y="0px" viewBox="0 0 540 540">
-						<g stroke="#FFF" stroke-width="12" fill="none">
-							<path class="st1" d="M408.3,191l-205,200.3l-83.7-85.7"/>
-						</g>
-					</svg>
-					<svg id="cross" x="0px" y="0px" viewBox="0 0 540 540">
-						<g stroke="#FFF" stroke-width="12" fill="none">
-							<path class="st1" d="M380.6,161.7L163.9,378.3 M163.9,161.7l216.7,216.7"/>
-						</g>
-					</svg>
-				</div>
-				<div id="modal_content"></div>
-			</div>
+		<div id="modal_content" class="row"></div>
+
+		<div id="modal_status">
+			<svg id="circle" viewBox="0 0 540 540">
+				<g stroke="#FFF" stroke-width="12" fill="none">
+					<path class="st0" d="M270,12c34.8,0,68.6,6.8,100.4,20.3c30.7,13,58.3,31.6,82,55.3c23.7,23.7,42.3,51.3,55.3,82 C521.2,201.4,528,235.2,528,270s-6.8,68.6-20.3,100.4c-13,30.7-31.6,58.3-55.3,82c-23.7,23.7-51.3,42.3-82,55.3 C338.6,521.2,304.8,528,270,528s-68.6-6.8-100.4-20.3c-30.7-13-58.3-31.6-82-55.3c-23.7-23.7-42.3-51.3-55.3-82 C18.8,338.6,12,304.8,12,270s6.8-68.6,20.3-100.4c13-30.7,31.6-58.3,55.3-82c23.7-23.7,51.3-42.3,82-55.3 C201.4,18.8,235.2,12,270,12"/>
+				</g>
+			</svg>
+			<svg id="check" x="0px" y="0px" viewBox="0 0 540 540">
+				<g stroke="#FFF" stroke-width="12" fill="none">
+					<path class="st1" d="M408.3,191l-205,200.3l-83.7-85.7"/>
+				</g>
+			</svg>
+			<svg id="cross" x="0px" y="0px" viewBox="0 0 540 540">
+				<g stroke="#FFF" stroke-width="12" fill="none">
+					<path class="st1" d="M380.6,161.7L163.9,378.3 M163.9,161.7l216.7,216.7"/>
+				</g>
+			</svg>
 		</div>
 	</div>
 </div>
@@ -47,7 +44,7 @@
 		self.status_check = $('#check');
 		self.status_cross = $('#cross');
 
-		self.circle_anim = new Vivus('circle', {animTimingFunction: Vivus.EASE_OUT});
+		self.circle_anim = new Vivus('circle', {animTimingFunction: Vivus.EASE_IN});
 		self.check_anim = new Vivus('check', {animTimingFunction: Vivus.EASE_OUT});
 		self.cross_anim = new Vivus('cross', {animTimingFunction: Vivus.EASE_OUT});
 
@@ -55,27 +52,40 @@
 		self.check_anim.stop().reset();
 		self.cross_anim.stop().reset();
 
-		self.animate_circle = function() {
-			var direction = 1;
+		var circle_direction = 1;
+		self.start_circle_anim = function() {
+			self.check_anim.stop().reset();
+			self.cross_anim.stop().reset();
 			function reverse() {
-				if (direction == 1) {
-					direction = -1;
+				if (circle_direction === 1) {
+					self.status_circle.find('path').attr('transform', 'translate(540) scale(-1, 1)');
+					circle_direction = -1;
 				} else {
-					direction = 1;
+					circle_direction = 1;
+					self.status_circle.find('path').attr('transform', 'scale(1, 1)');
 				}
-				console.log(direction);
-				self.circle_anim.play(direction);
+				self.circle_anim.play(circle_direction);
 			}
 			self.circle_anim.setCallback(reverse);
-			self.circle_anim.play(direction);
+			self.circle_anim.play(circle_direction);
+		}
+		self.stop_circle_anim = function() {
+			if (circle_direction === 1) {
+				self.circle_anim.setCallback();
+			} else {
+				circle_direction = 1;
+				self.status_circle.find('path').attr('transform', 'scale(1, 1)');
+				self.circle_anim.play(circle_direction);
+				self.circle_anim.setCallback();
+			}
 		}
 
 		self.animate_cross = function() {
-			self.circle_anim.play(1);
+			self.stop_circle_anim();
 			self.cross_anim.play(1);
 		}
 		self.animate_check = function() {
-			self.circle_anim.play(1);
+			self.stop_circle_anim();
 			self.check_anim.play(1);
 		}
 
@@ -115,7 +125,8 @@
 	var modal = new Modal();
 	modal.modal_head.hide();
 	modal.modal_status.show();
-	modal.animate_circle();
+
+	modal.start_circle_anim();
 </script>
 
 {% endblock %}

@@ -69,21 +69,20 @@ $header_height: 3.2rem;
 		#modal_content {
 			display: block;
 			color: white;
+		}
 
-			#modal_status {
-				display: block;
-				position: relative;
-				margin: auto;
-				width: 6.4rem;
-				height: 6.4rem;
+		#modal_status {
+			display: none;
+			@include centerer(true, true);
+			width: 6.4rem;
+			height: 6.4rem;
 
-				#circle,
-				#check,
-				#cross {
-					position: absolute;
-					top: 0;
-					left: 0;
-				}
+			#circle,
+			#check,
+			#cross {
+				position: absolute;
+				top: 0;
+				left: 0;
 			}
 		}
 	}
