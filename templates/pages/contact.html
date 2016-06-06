@@ -4,7 +4,7 @@
 {% block content %}
 	<div class="section content contact">
 		<div class="container contact">
-			<form>
+			<form id="contact_form">
 				{{ contact_form.csrf_token }}
 				<div class="row">
 					<div class="columns six">
@@ -39,10 +39,36 @@
 
 				<div class="row">
 					<div class="columns twelve">
-						<input class="button-primary" type="submit" value="Submit" action="show_modal();">
+						<input id="contact_submit" class="button-primary" type="submit" value="Submit">
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
+
+	<script>
+		$('#contact_sumbit').click(function(e) {
+			e.preventDefault();
+
+			modal.show();
+			modal.status.show();
+			modal.start_circle_anim();
+
+			var failure = function() {
+
+			}
+			var success = function(data) {
+
+			}
+			console.log($('#contact_form').serialize());
+
+			$.ajax({
+				type: "POST",
+				url: "/contact/submit",
+				data: $('#contact_form').serialize(),
+				success: success,
+				failure: failure,
+			})
+		});
+	</script>
 {% endblock %}

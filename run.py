@@ -27,5 +27,9 @@ def contact():
 	return render_template('pages/contact.html',
 						   contact_form = contact_form)
 
+@app.route('/contact/submit', methods=['POST'])
+def contact_submit():
+	utils.send_email(request)
+
 if __name__ == '__main__':
 	app.run()

@@ -11,6 +11,7 @@ def bundle_assets(app):
 	scss = Bundle('css/lib/normalize.css',
 				  'css/lib/skeleton.css',
 				  'css/lib/font-awesome.min.css',
+				  'css/vv_skeleton.scss',
 				  'css/main.scss',
 				  'css/about.scss',
 				  'css/contact.scss',
@@ -18,19 +19,20 @@ def bundle_assets(app):
 				  filters = 'pyscss', output = 'all.css')
 	assets.register('scss_all', scss)
 
-def email_submit(request):
-	form_data = request.form
+def send_email(request):
+	form = forms.ContactForm(request.form)
+	data = request.form
 
-	msg = "From: "+form_data['name']+" <"+form_data['email']+">\n"+ \
-		  "Reason: "+form_data['reason']+"\n"+ \
+	msg = "From: "+data['name']+" <"+data['email']+">\n"+ \
+		  "Reason: "+data['reason']+"\n"+ \
 		  "------------\n"+ \
 		  "Message:\n"+ \
-		  form_data['message']
+		  data['message']
 	message = text(msg)
-	message['Subject'] = form_data['subject']
+	message['Subject'] = data['subject']
 	message['From'] = settings.MAIL_ADDRESS
 	message['To'] = settings.MAIL_ADDRESS
-	message['Reply-to'] = form_data['email']
+	message['Reply-to'] = data['email']
 	
 	if form.validate():
 		s = smtplib.SMTP(settings.MAIL_SERVER, 587)
