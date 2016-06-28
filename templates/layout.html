@@ -11,15 +11,18 @@
 
 		<script src="/static/js/jquery-1.12.2.min.js"></script>
 		<script src="//cdn.jsdelivr.net/vivus/0.3.0/vivus.min.js"></script>
+		<script src="/static/js/StackBoxBlur.js"></script>
 		<script src="/static/js/main.js"></script>
 	</head>
 	<body>
-		<div id="background"></div>
+		<div class="bg_container">
+			<img id="background" src="/static/res/img/bg/bg.jpg" />
+		</div>
 		<div id="background_gradient"></div>
-		<div id="particle"></div>
 
-		<div class="section nav">
+		<div class="section nav blur">
 			<div class="container">
+				<img class="logo" src="/static/res/svg/wing.svg">
 				<div class="row">
 					<ul>
 						<li id="nav_about">
@@ -50,11 +53,11 @@
 		{% include 'partials/_modal.html' %}
 		{% block content %}{% endblock %}
 
-		<div class="section footer">
+		<div class="section footer blur">
 			<div class="container">
 				<div class="row">
 					<div class="four columns">
-						VERAVERE &copy; 2015-2016
+						VERAVERE &copy; 2016
 					</div>
 				</div>
 			</div>

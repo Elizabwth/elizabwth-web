@@ -19,18 +19,36 @@ span {
 }
 
 #background {
-	z-index: -2;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
 	opacity: 0;
 }
+
+.bg_container {
+	z-index: -20;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+
+    #background {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		width: auto;
+		height: auto;
+
+		max-height: none;
+		max-width: none;
+
+		min-height: 100%;
+		min-width: 100%;
+
+		@include translate(-50%, -50%);
+    }
+}
+
 #background_gradient {
 	z-index: -1;
 	position: fixed;
@@ -38,26 +56,29 @@ span {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: -webkit-linear-gradient(rgba(255,255,255,0), black); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(rgba(255,255,255,0), black); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(rgba(255,255,255,0), black); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(rgba(255,255,255,0), black); /* Standard syntax (must be last) */
+	background: -webkit-linear-gradient(rgba(0,0,0,0), black); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgba(0,0,0,0), black); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgba(0,0,0,0), black); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgba(0,0,0,0), black); /* Standard syntax (must be last) */
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
 
-$nav_height: 6.4rem;
+#background_copy {
+	display: none;
+}
+
+$nav_height: 7.2rem;
 $nav_btn_width: 10rem;
 
-$logo_height: 12.8rem;
-$logo_padding: 1.2rem;
+$padding: 1.2rem;
 
 $footer_height: 2.4rem;
 
 .nav {
 	height: $nav_height;
-	background-color: $shade9;
+	background-color: rgba($shade9, 0.7);
 	letter-spacing: 0.25rem;
 
 	font-family: 'Montserrat', sans-serif;
@@ -66,14 +87,14 @@ $footer_height: 2.4rem;
 
 	img.logo {
 		position: absolute;
-		top: -($logo_height - $nav_height);
-		left: $logo_padding;
-		height: $logo_height;
+		top: $padding/2;
+		left: $padding;
+		height: $nav_height - $padding;
 	}
 
 	ul {
 		white-space: nowrap;
-		text-align: center;
+		text-align: right;
 		list-style-type: none;
 		margin: 0;
 
@@ -109,14 +130,33 @@ $footer_height: 2.4rem;
 .content {
 	display: block;
 	min-height: calc(100% - #{$nav_height} - #{$footer_height});
-	background-color: rgba(0, 0, 0, 0.25);
 
 	.container {
-		padding: 6.4rem 1.2rem;
+		padding: 6.4rem $padding;
+
+		.card {
+			position: relative;
+			padding: $padding $padding*3;
+			background: rgba($shade9, 0.7);
+			@include box-shadow(0.4rem, 0, 0, $primary_tint5, true);
+
+			.title {
+				margin-left: -$padding*3;
+				margin-right: -$padding*3;
+				padding-left: $padding*3;
+				color: black;
+				//background-color: $primary_tint5;
+				font-family: 'Montserrat', sans-serif;
+				font-size: 1.2rem;
+				line-height: 2.4rem;
+				letter-spacing: 0.1rem;
+			}
+		}
 	}
 }
 
 .footer {
+	position: relative;
 	display: block;
 
 	height: $footer_height;
@@ -124,6 +164,6 @@ $footer_height: 2.4rem;
 	font-family: 'Lato', sans-serif;
 	font-size: 1.1rem;
 	letter-spacing: 0.1rem;
-	background-color: $shade9;
+	background-color: rgba($shade9, 0.7);
 	color: $shade2;
 }

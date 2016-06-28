@@ -1,10 +1,8 @@
 @import "partials/mixins";
 @import "partials/colors";
 
-$logo_width: 12.8rem;
-
 .content.about {
-	background-color: rgba($shade4, 0.75);
+	//background-color: rgba($shade1, 0.5);
 }
 
 .container.about {
@@ -15,32 +13,14 @@ $logo_width: 12.8rem;
 	}
 
 	.flavour {
-		overflow: hidden;
-		//padding: 1.8rem;
-		font-family: 'Montserrat', sans-serif;
+		color: $shade3;
+		padding-top: 1.2rem;
+		font-family: 'Monsterrat', sans-serif;
 		font-size: 1rem;
-		letter-spacing: 0.2rem;
 		text-transform: uppercase;
-		color: white;
-		margin-bottom: 2.4rem;
+	}
 
-		.catch {
-			list-style-type: none;
-			margin: 0;
-			color: white;
-
-			li {
-				margin: 0;
-			}
-		}
-
-		.info {
-			position: relative;
-			text-align: center;
-		}
-
-		.logo {
-			width: $logo_width;
-		}
+	> .row:not(:first-child) {
+		margin-top: 2.4rem;
 	}
 }
