@@ -6,6 +6,7 @@ body {
 	padding: 0;
 	margin: 0;
 	background-color: $shade1;
+	opacity: 0;
 }
 ::selection {
   background: rgba($complementary, 0.5);
@@ -19,7 +20,7 @@ span {
 }
 
 #background {
-	opacity: 0;
+	opacity: 1;
 }
 
 .bg_container {
@@ -84,12 +85,12 @@ $footer_height: 2.4rem;
 	font-family: 'Montserrat', sans-serif;
 	overflow: hidden;
 
-
-	img.logo {
+	.logo {
 		position: absolute;
-		top: $padding/2;
-		left: $padding;
-		height: $nav_height - $padding;
+		top: 0;
+		left: 0;
+		height: $nav_height;
+		text-align: center;
 	}
 
 	ul {

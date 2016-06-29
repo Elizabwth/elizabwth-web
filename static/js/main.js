@@ -1,6 +1,7 @@
 $(window).load(function() {
-	$('#background').fadeTo(1000, 1);
-	$('#background_gradient').fadeTo(1500, 0);
+	$('body').fadeTo(1000, 1);
+	//$('#background').fadeTo(1000, 1);
+	$('#background_gradient').fadeTo(2000, 0);
 
 	var bg = document.getElementById('background');
 	var bg_width = bg.naturalWidth;
@@ -32,7 +33,7 @@ $(window).load(function() {
 			var canvas = canvas[0];
 			var context = canvas.getContext("2d");
 			context.drawImage(bg, x, y, w, h, 0, 0, w, h);
-			stackBoxBlurCanvasRGBA(id_name, 0, 0, w, h, 10, 1);
+			stackBoxBlurCanvasRGB(id_name, 0, 0, w, h, 10, 1);
 		});
 	}
 

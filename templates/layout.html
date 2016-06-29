@@ -11,10 +11,11 @@
 
 		<script src="/static/js/jquery-1.12.2.min.js"></script>
 		<script src="//cdn.jsdelivr.net/vivus/0.3.0/vivus.min.js"></script>
+		<script src="/static/js/dom-to-image.min.js"></script>
 		<script src="/static/js/StackBoxBlur.js"></script>
 		<script src="/static/js/main.js"></script>
 	</head>
-	<body>
+	<body id="body">
 		<div class="bg_container">
 			<img id="background" src="/static/res/img/bg/bgbw.jpg" />
 		</div>
@@ -22,8 +23,9 @@
 
 		<div class="section nav blur">
 			<div class="container">
-				<img class="logo" src="/static/res/svg/wing.svg">
 				<div class="row">
+					<img class="logo" src="/static/res/svg/wing.svg">
+
 					<ul>
 						<li id="nav_about">
 							<a href="{{ url_for('about') }}">about</a>
