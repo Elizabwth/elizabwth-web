@@ -17,7 +17,7 @@
 	</head>
 	<body id="body">
 		<div class="bg_container">
-			<img id="background" src="/static/res/img/bg/bgbw.jpg" />
+			<img id="background" src="/static/res/img/bg/thunderbird_1920bw.jpg" />
 		</div>
 		<div id="background_gradient"></div>
 
@@ -31,6 +31,8 @@
 							<a href="{{ url_for('about') }}">about</a>
 						</li><li id="nav_work"> <!-- avoiding whitespace between -->
 							<a href="{{ url_for('work') }}">work</a>
+						</li><li id="nav_team">
+							<a href="{{ url_for('team') }}">team</a>
 						</li><li id="nav_contact">
 							<a href="{{ url_for('contact') }}">contact</a>
 						</li>
@@ -46,6 +48,8 @@
 					$('#nav_about').find('a').addClass('active');
 				} else if (active_page == 'work') {
 					$('#nav_work').find('a').addClass('active');
+				} else if (active_page == 'team') {
+					$('#nav_team').find('a').addClass('active');
 				} else if (active_page == 'contact') {
 					$('#nav_contact').find('a').addClass('active');
 				}

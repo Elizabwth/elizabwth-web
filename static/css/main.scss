@@ -87,9 +87,9 @@ $footer_height: 2.4rem;
 
 	.logo {
 		position: absolute;
-		top: 0;
-		left: 0;
-		height: $nav_height;
+		top: $padding;
+		left: $padding*2;
+		height: $nav_height - $padding*2;
 		text-align: center;
 	}
 

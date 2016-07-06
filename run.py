@@ -21,6 +21,10 @@ def about():
 def work():
 	return render_template('pages/work.html')
 
+@app.route('/team')
+def team():
+	return render_template('pages/team.html')
+
 @app.route('/contact')
 def contact():
 	contact_form = forms.ContactForm()
