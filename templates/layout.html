@@ -11,14 +11,14 @@
 
 		<script src="/static/js/jquery-1.12.2.min.js"></script>
 		<script src="//cdn.jsdelivr.net/vivus/0.3.0/vivus.min.js"></script>
-		<script src="/static/js/dom-to-image.min.js"></script>
-		<script src="/static/js/StackBoxBlur.js"></script>
+		<script src="/static/js/drawimageprop.js"></script>
+		<script src="/static/js/stackblur.min.js"></script>
 		<script src="/static/js/main.js"></script>
 	</head>
 	<body id="body">
-		<div class="bg_container">
-			<img id="background" src="/static/res/img/bg/thunderbird_1920bw.jpg" />
-		</div>
+		<img id="bg_img" src='/static/res/img/bg/thunderbird_1920.jpg'/>
+		<canvas id="background"></canvas>
+
 		<div id="background_gradient"></div>
 
 		<div class="section nav blur">
