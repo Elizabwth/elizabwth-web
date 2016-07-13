@@ -1,6 +1,5 @@
 $(window).load(function() {
 	$('body').fadeTo(1000, 1);
-	//$('#background').fadeTo(1000, 1);
 	$('#background_gradient').fadeTo(2000, 0);
 
 	var bg_img = document.getElementById("bg_img");
